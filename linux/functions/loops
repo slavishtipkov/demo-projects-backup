@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for word in $* ; do
+  if [ $word == 'slavi' ] ; then
+    echo "The best => $word"
+  fi
+
+    echo $word
+done
+

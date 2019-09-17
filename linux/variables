@@ -1,0 +1,3 @@
+user_name=slavi
+echo "$user_name"
+echo "${user_name}'s skills"

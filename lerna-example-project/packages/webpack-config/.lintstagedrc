@@ -1,0 +1,3 @@
+{
+  "{src,tests}/**/*.js": ["npm run-script format -- --write", "npm run-script lint:js", "git add"]
+}

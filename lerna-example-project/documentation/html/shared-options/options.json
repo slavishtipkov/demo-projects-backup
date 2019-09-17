@@ -1,0 +1,34 @@
+{
+  "apiKey": {
+    "doc_title": "apiKey",
+    "doc_code": "apiKey: string;",
+    "doc_description": "The widget access api key associated with your DTN account."
+  },
+  "container": {
+    "doc_title": "container",
+    "doc_code": "container: HTMLElement | string;",
+    "doc_description": "The container to mount the widget on. This can be a reference to an HTML element, or a valid selector string. If a string is encountered, document.querySelector will be used to search document for the container."
+  },
+  "units":{
+    "doc_title": "units",
+    "doc_code": "units?: Units = \"Imperial\";",
+    "doc_description": "The measuring units that are used for presenting numbers in the weather forecast."
+  },
+  "units_type": {
+    "doc_title": "Units",
+    "doc_code":
+      "type Units = \"Imperial\" | \"Metric\";",
+    "doc_description":
+      "These are the available metric sistems that widget support."
+  },
+  "locale": {
+    "doc_title": "locale",
+    "doc_code": "locale: enum [\"en_US\"];",
+    "doc_description": "The language to display the widget."
+  },
+  "userId":{
+    "doc_title": "userId",
+    "doc_code": "userId: string;",
+    "doc_description": "User name in format: \"firstName.lastName\"."
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "extends": "@dtn/tslint-config",
+  "rules": {}
+}

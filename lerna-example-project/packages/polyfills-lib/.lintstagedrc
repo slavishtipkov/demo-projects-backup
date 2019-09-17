@@ -1,0 +1,4 @@
+{
+  "{src,tests}/**/*.js": ["npm run-script format -- --write", "npm run-script lint:js", "git add"],
+  "{package,eslintrc,tsconfig,tslint}.json": ["npm run-script format -- --write", "git add"]
+}

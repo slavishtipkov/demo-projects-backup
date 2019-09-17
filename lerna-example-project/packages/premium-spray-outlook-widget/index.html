@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Premium Spray Outlook Widget</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      #widget-container {
+        margin: 100px auto;
+        width: 400px;
+        height: auto;
+      }
+    </style>
+
+    <script src="./dist/premium-spray-outlook-widget.js"></script>
+  </head>
+  <body>
+    <div id="widget-container"></div>
+
+    <script>
+      (async function() {
+        window.widget = await window.dtn.sprayOutlook.createPremiumSprayOutlookWidget({
+          apiKey: "7uyr5xTQzL9OZV7QmHFDr920ZGHG7vI3",
+          container: "#widget-container",
+          baseUrl: "https://test-api.dtn.com",
+          userId: "first.last",
+          units: "Imperial",
+          showPostalCodeInput: false,
+          showHourly: "EXPANDED",
+          defaultLocation: {
+            postalCode: 55419,
+          },
+          defaultThresholds: {
+            temperatureInversionRisk: false,
+            daytimeOnlyApplication: true,
+            rainfreeForecastPeriod: 5,
+            minimumSprayWindow: 5,
+            windThresholdUpperLimit: undefined,
+            windThresholdLowerLimit: 2,
+            temperatureUpperLimit: 98,
+            temperatureLowerLimit: 2,
+          },
+          callbacks: {
+            onOutlookChange(newOutlook, newThresholds) {
+              console.log({ newOutlook, newThresholds });
+            },
+            onPostalCodeChange(coords) {
+              console.log({ coords });
+            },
+          },
+        });
+      })();
+    </script>
+  </body>
+</html>

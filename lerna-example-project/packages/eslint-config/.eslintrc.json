@@ -1,0 +1,32 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": false
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    },
+    "sourceType": "module"
+  },
+
+  "globals": {
+    "require": true,
+    "define": true,
+    "navigator": true,
+    "document": true
+  },
+
+  "extends": ["standard"],
+
+  "rules": {
+    "arrow-parens": ["error", "as-needed"],
+    "quotes": ["error", "double", { "avoidEscape": true }],
+    "comma-dangle": ["error", "always-multiline"],
+    "space-before-function-paren": ["error", "never"],
+    "semi": ["error", "always"]
+  }
+}

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+tmp/
+packages/*/yarn.lock
+packages/*/package-lock.json
+.DS_Store
+.vscode/
+**/*.log
+.idea/
+docs-site/
+build-preview/
+widgets-build/
+config.json

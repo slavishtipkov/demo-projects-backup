@@ -1,0 +1,9 @@
+{
+  "extends": "./node_modules/@dtn/ts-config/tsconfig.json",
+
+  "compilerOptions": {
+    "preserveConstEnums": true,
+    "outDir": "dist/"
+  },
+  "include": ["src/"]
+}

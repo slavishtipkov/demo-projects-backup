@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather Trend Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      #widget-container {
+        margin: 100px auto 0;
+        width: 80vw;
+        height: auto;
+      }
+
+      #widget-container2 {
+        margin: 50px auto 0;
+        width: 80vw;
+        height: auto;
+      }
+    </style>
+
+    <script src="./dist/weather-trend-widget.js"></script>
+  </head>
+  <body>
+    <div id="widget-container"></div>
+    <div id="widget-container2"></div>
+    <script>
+      (async function() {
+        window.dtn.weather.createWeatherTrendWidget({
+          container: "#widget-container",
+          apiKey: "7uyr5xTQzL9OZV7QmHFDr920ZGHG7vI3",
+          baseUrl: "https://test-api.dtn.com",
+          defaultLocation: {
+            latitude: 41.489599,
+            longitude: -86.939805,
+          },
+          weatherField: "SOIL_DEPTH_AVERAGE_MOISTURE",
+          units: "Metric",
+        });
+
+        window.widget = await window.dtn.weather.createWeatherTrendWidget({
+          container: "#widget-container2",
+          apiKey: "7uyr5xTQzL9OZV7QmHFDr920ZGHG7vI3",
+          baseUrl: "https://test-api.dtn.com",
+          defaultLocation: {
+            latitude: 41.489599,
+            longitude: -86.939805,
+          },
+          weatherField: "SOIL_DEPTH_AVERAGE_TEMPERATURE",
+        });
+      })();
+    </script>
+  </body>
+</html>

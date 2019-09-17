@@ -1,0 +1,132 @@
+{
+  "apiKey": "apiKeyPremium",
+  "example_widget": "window.dtn.forecast.createPremiumExtendedForecastWidget;",
+  "example_code": "      container: \"#premium-extended-forecast-widget\",\r\n      units: \"Imperial\",\r\n      userId:  \"firstname.lastname\",\r\n      defaultLocation: { postalCode: \"33101\" },\r\n       stations: [\r\n            { id: \"KTPH\", displayName: \"Station 1\" },\r\n            { id: \"KSNA\", displayName: \"Station 2\"}\r\n       ],\r\n       showStationSelect: true,\r\n       showPostalCodeInput: true,\r\n       callbacks:{\r\n         onStationChange: \"\",\r\n         onPostalCodeChange: \"\",\r\n         onWeatherChange: \"\"}",
+  "preview": {
+    "lib-name": "forecast",
+    "workspaceId": "premium-local-forecast-wrapper",
+    "textareaId": "premium-local-forecast-config",
+    "widgetId": "premium-extended-forecast-widget",
+    "script": "./premium-extended-forecast-widget.js",
+    "function": "createPremiumExtendedForecastWidget",
+    "config": {
+      "units": "'Imperial'",
+      "userId": "'firstname.lastname'",
+      "defaultLocation": "{\"postalCode\": \"33101\"}",
+      "stations": "[{ \"id\": \"KTPH\", \"displayName\": \"Station 1\" },{ \"id\": \"KSNA\", \"displayName\": \"Station 2\" }]",
+      "showStationSelect": true,
+      "showPostalCodeInput": true,
+      "callbacks": {
+        "onStationChange": "",
+        "onPostalCodeChange": "",
+        "onWeatherChange": ""
+      }
+    }
+  },
+  "sections": [
+    {
+      "section_title": "Example",
+      "example": [
+        {
+          "workspaceId": "premium-local-forecast-wrapper",
+          "textareaId": "premium-local-forecast-config",
+          "widgetId": "premium-extended-forecast-widget",
+          "style": "style=\"height: 100%; width: 100%;\"",
+          "example_code_start": "window.dtn.forecast.createPremiumExtendedForecastWidget({\r\n",
+          "example_code_end": "\r\n});"
+        }
+      ]
+    },
+    {
+      "section_title": "Types",
+      "doc": [
+        {
+          "shared": [{ "name": "units_type" }]
+        },
+        {
+          "doc_title": "Coordinates",
+          "doc_code": "type Coordinates = { latitude: number, longitude: number };",
+          "doc_description": "This type describe coordinates data that may be used to supply the defaultLocation property."
+        },
+        {
+          "doc_title": "PostalCode",
+          "doc_code": "type PostalCode = { postalCode: string };",
+          "doc_description": "This type describe postal code data that may be used to supply the defaultLocation property."
+        },
+        {
+          "doc_title": "StationId",
+          "doc_code": "type StationId = string;",
+          "doc_description": "This type describe station id data that may be used to supply the defaultLocation property."
+        },
+        {
+          "doc_title": "Station",
+          "doc_code": "type Station = { id: StationId, displayName: string };",
+          "doc_description": "This type describe station data that is needed in stations array property."
+        }
+      ]
+    },
+    {
+      "section_title": "Configuration",
+      "doc": [
+        {
+          "shared": [
+            { "name": "apiKey" },
+            { "name": "container" },
+            { "name": "units" },
+            { "name": "userId" }
+          ]
+        },
+        {
+          "doc_title": "defaultLocation",
+          "doc_code": "defaultLocation?: PostalCode | Coordinates | { stationId: StationId };",
+          "doc_description": "If { postalCode: \"postal code value\" } object is passed in the configurations, the widget will be default populated with the data fetched by the specified postal code. If { stationId: \"station id value\"} object is passed in the configurations, the widget will be default populated with the data fetched by the station Id. If { latitude: \"latitude coordinates value\", longitude:  \"longitude coordinates value\"} object is passed in the configurations, the widget will be default populated with the data fetched by the specified latitude and longitude."
+        },
+        {
+          "doc_title": "stations",
+          "doc_code": "stations?: Station[]",
+          "doc_description": "The list with stations that is going to be listed in the locations dropdown."
+        },
+        {
+          "doc_title": "showStationSelect",
+          "doc_code": "showStationSelect?: boolean;",
+          "doc_description": "Whether the station select dropdown to be shown. Default set to true."
+        },
+        {
+          "doc_title": "showPostalCodeInput",
+          "doc_code": "showPostalCodeInput?: boolean;",
+          "doc_description": "Whether the zip/postal code picker to be shown. Default set to true."
+        }
+      ]
+    },
+    {
+      "section_title": "Methods",
+      "doc": [
+        {
+          "doc_title": "setLocation",
+          "doc_code": "setLocation: (\r\n  location: PostalCode | Coordinates | { stationId: StationId }\r\n) => void;",
+          "doc_description": "Set location and load the widget with it."
+        }
+      ]
+    },
+    {
+      "section_title": "Callbacks",
+      "doc": [
+        {
+          "doc_title": "onStationChange",
+          "doc_code": "onStationChange: (newStation: Station) => void;",
+          "doc_description": "This callback will be called whenever the station state changes. The callback takes a single argument which represents the new station state."
+        },
+        {
+          "doc_title": "onPostalCodeChange",
+          "doc_code": "onPostalCodeChange: (newPostalCode: PostalCode & Coordinates) => void;",
+          "doc_description": "This callback will be called whenever the postal code state changes. The callback takes a single argument which represents the new postal code and coordinates state."
+        },
+        {
+          "doc_title": "onWeatherChange",
+          "doc_code": "onWeatherChange: (newCoordinates: Coordinates) => void;",
+          "doc_description": "This callback will be called whenever the weather data state changes. The callback takes a single argument which represents the new coordinates state."
+        }
+      ]
+    }
+  ]
+}

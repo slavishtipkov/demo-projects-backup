@@ -1,0 +1,96 @@
+{
+  "apiKey": "apiKey",
+  "example_widget": " window.dtn.map.createWeatherGraphicsWidget;",
+  "example_code": "    \"container\": \"#weather-graphics-widget\",\r\n    \"showWeatherGraphics\": [\"US_SEVERE_WEATHER_RISK\", \"US_FORECAST_HIGH_TEMPS\", \"US_FORECAST_LOW_TEMPS\", \"NA_FORECAST_HIGH_TEMPS\", \"NA_FORECAST_LOW_TEMPS\", \"US_SURFACE_WEATHER_FORECAST\", \"NA_SURFACE_WEATHER_FORECAST\"],\r\n    \"defaultWeatherGraphic\": \"US_FORECAST_HIGH_TEMPS\",\r\n       callbacks:{\r\n         onWeatherGraphicChange: \"\"}",
+  "sections": [
+    {
+      "section_title": "Example",
+      "example": [
+        {
+          "workspaceId": "static-weather-map-wrapper",
+          "textareaId": "static-weather-map-config",
+          "widgetId": "weather-graphics-widget",
+          "style": "style=\"height: 100%; width: 100%; border: none;\"",
+          "example_code_start": "window.dtn.map.createWeatherGraphicsWidget({\r\n",
+          "example_code_end": "\r\n});"
+        }
+      ]
+    },
+    {
+      "section_title": "Types",
+      "doc": [
+        {
+          "shared": [{ "name": "units_type" }]
+        },
+        {
+          "doc_title": "defaultWeatherGraphic",
+          "doc_code": "type WeatherGraphics = \r\n | \"US_SEVERE_WEATHER_RISK\" \r\n | \"US_FORECAST_HIGH_TEMPS\" \r\n | \"US_FORECAST_LOW_TEMPS\" \r\n | \"NA_FORECAST_HIGH_TEMPS\" \r\n | \"NA_FORECAST_LOW_TEMPS\" \r\n | \"US_SURFACE_WEATHER_FORECAST\" \r\n | \"NA_SURFACE_WEATHER_FORECAST\";",
+          "doc_description": "These are the available weather graphics that widget support."
+        }
+      ]
+    },
+    {
+      "section_title": "Configuration",
+      "doc": [
+        {
+          "shared": [{ "name": "apiKey" }, { "name": "container" }, { "name": "units" }]
+        },
+        {
+          "doc_title": "showWeatherGraphics",
+          "doc_code": "showWeatherGraphics?: boolean | WeatherGraphics[] = true;",
+          "doc_description": "List of maps that are shown in the widget sidebar. User can turn on and off each map from the list. Maps can be rearrange in wanted display order. Default set to true."
+        },
+        {
+          "doc_title": "defaultWeatherGraphic",
+          "doc_code": "defaultWeatherGraphic?: WeatherGraphics = \"US_SEVERE_WEATHER_RISK\";",
+          "doc_description": "Name of the map that can be set as active when initially load the widget. If no specified, by default US_SEVERE_WEATHER_RISK or first map in the list is set as default one."
+        }
+      ]
+    },
+    {
+      "section_title": "Methods",
+      "doc": [
+        {
+          "doc_title": "setWeatherGraphic",
+          "doc_code": "setWeatherGraphic: (weatherGraphic: WeatherGraphics) => void;",
+          "doc_description": "Set weather graphic and load the widget whit it."
+        }
+      ]
+    },
+    {
+      "section_title": "Callbacks",
+      "doc": [
+        {
+          "doc_title": "onWeatherGraphicChange",
+          "doc_code": "onWeatherGraphicChange: (newWeatherGraphic: WeatherGraphics) => void;",
+          "doc_description": "This callback will be called whenever the weather graphic data state changes. The callback takes a single argument which represents the new weather graphic state."
+        }
+      ]
+    }
+  ],
+  "preview": {
+    "lib-name": "map",
+    "script": "./weather-graphics-widget.js",
+    "workspaceId": "static-weather-map-wrapper",
+    "textareaId": "static-weather-map-config",
+    "widgetId": "weather-graphics-widget",
+    "function": "createWeatherGraphicsWidget",
+    "config": {
+      "container": "#weather-graphics-widget",
+      "showWeatherGraphics": [
+        "US_SEVERE_WEATHER_RISK",
+        "US_FORECAST_HIGH_TEMPS",
+        "US_FORECAST_LOW_TEMPS",
+        "NA_FORECAST_HIGH_TEMPS",
+        "NA_FORECAST_LOW_TEMPS",
+        "US_SURFACE_WEATHER_FORECAST",
+        "NA_SURFACE_WEATHER_FORECAST"
+      ],
+      "defaultWeatherGraphic": "US_SEVERE_WEATHER_RISK",
+      "units": "Imperial",
+      "callbacks": {
+        "onWeatherGraphicChange": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "apiKey": "apiKeyPremium",
+  "example_widget": " window.dtn.sprayOutlook.createPremiumSprayOutlookWidget;",
+  "example_code": "        \"container\": \"#premium-spray-outlook-widget\",\r\n        \"units\": \"Imperial\",\r\n        \"defaultLocation\": {\r\n            \"latitude\": 25.779303, \"longitude\": -80.198736\r\n        },\r\n        \"showPostalCodeInput\": true,\r\n        \"showHourly\": true,\r\n        \"expandHourly\": false,\r\n        \"userId\": \"firstname.lastname\",\r\n        \"defaultThresholds\": {\r\n    \"temperatureInversionRisk\": true,\r\n    \"daytimeOnlyApplication\": false,\r\n    \"rainfreeForecastPeriod\": 10,\r\n    \"minimumSprayWindow\": 3,\r\n    \"windThresholdUpperLimit\": true,\r\n    \"windThresholdLowerLimit\": true,\r\n    \"temperatureUpperLimit\": true,\r\n    \"temperatureLowerLimit\": true\r\n},\r\n        \"callbacks\": {\r\n            onPostalCodeChange: \"\",\r\n            onOutlookChange: \"\",\r\n            onThresholdsChange: \"\",\r\n\r\n        }",
+  "sections": [
+    {
+      "section_title": "Example",
+      "example": [
+        {
+          "workspaceId": "premium-spray-outlook-widget-wrapper",
+          "textareaId": "premium-spray-outlook-widget-config",
+          "widgetId": "premium-spray-outlook-widget",
+          "style": "style=\"height: 100%; width: 65%; border: none;\"",
+          "example_code_start": "window.dtn.sprayOutlook.createPremiumSprayOutlookWidget({\r\n",
+          "example_code_end": "\r\n});"
+        }
+      ]
+    },
+    {
+      "section_title": "Types",
+      "doc": [
+        {
+          "shared": [{ "name": "units_type" }]
+        },
+        {
+          "doc_title": "Coordinates",
+          "doc_code": "type Coordinates = { latitude: number, longitude: number };",
+          "doc_description": "This type describe coordinates data that may be used to supply the defaultLocation property."
+        },
+        {
+          "doc_title": "PostalCode",
+          "doc_code": "type PostalCode = { postalCode: string };",
+          "doc_description": "This type describe postal code data that may be used to supply the defaultLocation property."
+        },
+        {
+          "doc_title": "Location",
+          "doc_code": "type Location = Coordinates | PostalCode;",
+          "doc_description": "This type describe location that may be used to supply the defaultLocation property."
+        },
+        {
+          "doc_title": "SprayOutlookThresholds",
+          "doc_code": "type SprayOutlookThresholds = {\r\n    temperatureInversionRisk?: boolean = true;\r\n    daytimeOnlyApplication?: boolean = false;\r\n    rainfreeForecastPeriod?: boolean | number = 10;\r\n    minimumSprayWindow?: number = 3;\r\n    windThresholdUpperLimit?: boolean | number = NaN;\r\n    windThresholdLowerLimit?: boolean | number = NaN;\r\n    temperatureUpperLimit?: boolean | number = NaN;\r\n    temperatureLowerLimit?: boolean | number = NaN;\r\n};",
+          "doc_description": "This type describe Spray Outlook Thresholds that may be used to supply setLocation or setThresholds methods."
+        }
+      ]
+    },
+    {
+      "section_title": "Configuration",
+      "doc": [
+        {
+          "shared": [
+            { "name": "apiKey" },
+            { "name": "container" },
+            { "name": "units" },
+            { "name": "userId" }
+          ]
+        },
+        {
+          "doc_title": "defaultLocation",
+          "doc_code": "defaultLocation?: Location;",
+          "doc_description": "If { postalCode: \"postal code value\" } object is passed in the configurations, the widget will be default populated with the data fetched by the specified postal code. If { latitude: \"latitude coordinates value\", longitude:  \"longitude coordinates value\"} object is passed in the configurations, the widget will be default populated with the data fetched by the specified latitude and longitude."
+        },
+        {
+          "doc_title": "showPostalCodeInput",
+          "doc_code": "showPostalCodeInput?: boolean;",
+          "doc_description": "Whether the zip/postal code picker to be shown. Default set to true."
+        },
+        {
+          "doc_title": "showHourly",
+          "doc_code": "showHourly?: \"EXPANDED\" | boolean = true;",
+          "doc_description": "Whether the hourly spray outlook details should be hidden (false), visible (true) or opened (\"EXPANDED\")."
+        },
+        {
+          "doc_title": "defaultThresholds",
+          "doc_code": "defaultThresholds?: SprayOutlookThresholds;",
+          "doc_description": "The default thresholds settings used for displaying the widget."
+        }
+      ]
+    },
+    {
+      "section_title": "Methods",
+      "doc": [
+        {
+          "doc_title": "setLocation",
+          "doc_code": "setLocation: (\r\n  location: Location, thresholds?: SprayOutlookThresholds\r\n) => void;",
+          "doc_description": "Set the location for the spray outlook."
+        },
+        {
+          "doc_title": "setThresholds",
+          "doc_code": "setThresholds: (thresholds?: SprayOutlookThresholds) => void;",
+          "doc_description": "Set the thresholds for the spray outlook."
+        }
+      ]
+    },
+    {
+      "section_title": "Callbacks",
+      "doc": [
+        {
+          "doc_title": "onPostalCodeChange",
+          "doc_code": "onPostalCodeChange: (\r\n  newPostalCode: PostalCode & Coordinates\r\n) => void;",
+          "doc_description": "This callback will be called whenever the Postal Code or Coordinates change."
+        },
+        {
+          "doc_title": "onOutlookChange",
+          "doc_code": "onOutlookChange: (\r\n  nextRecommendedSprayTime: Date | undefined,\r\n  thresholds: SprayOutlookThreshold\r\n) => void;",
+          "doc_description": "This callback will be called whenever the Outlook data changes."
+        }
+      ]
+    }
+  ],
+  "preview": {
+    "lib-name": "premiumSprayOutlook",
+    "script": "./premium-spray-outlook-widget.js",
+    "workspaceId": "premium-spray-outlook-widget-wrapper",
+    "textareaId": "premium-spray-outlook-widget-config",
+    "widgetId": "premium-spray-outlook-widget",
+    "function": "createPremiumSprayOutlookWidget",
+    "config": {
+      "units": "'Imperial'",
+      "userId": "'firstname.lastname'",
+      "showPostalCodeInput": true,
+      "showHourly": true,
+      "expandHourly": false,
+      "defaultLocation": "{  \"latitude\": 25.779303, \"longitude\": -80.198736}",
+      "defaultThresholds": "{\"temperatureInversionRisk\": true, \"daytimeOnlyApplication\": false, \"rainfreeForecastPeriod\": 10, \"minimumSprayWindow\": 3, \"windThresholdUpperLimit\": true, \"windThresholdLowerLimit\": true, \"temperatureUpperLimit\": true, \"temperatureLowerLimit\": true}",
+      "callbacks": {
+        "onPostalCodeChange": "",
+        "onOutlookChange": "",
+        "onThresholdsChange": ""
+      }
+    }
+  }
+}

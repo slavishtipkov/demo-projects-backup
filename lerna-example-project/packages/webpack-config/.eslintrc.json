@@ -1,0 +1,7 @@
+{
+  "extends": "@dtn/eslint-config",
+  "env": {
+    "browser": false,
+    "node": true
+  }
+}

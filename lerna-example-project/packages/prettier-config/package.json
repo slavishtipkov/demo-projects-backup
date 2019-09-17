@@ -1,0 +1,11 @@
+{
+  "name": "@dtn/prettier-config",
+  "version": "0.2.2",
+  "main": "./index.js",
+  "peerDependencies": {
+    "prettier": ">= 1.11 < 2"
+  },
+  "devDependencies": {
+    "prettier": "~1.17.0"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@dtn/polyfills-lib",
+  "version": "0.0.4",
+  "main": "./dist/index.js",
+  "scripts": {
+    "format": "prettier --config .prettierrc.js",
+    "lint:js": "eslint --config .eslintrc.json",
+    "lint": "npm run-script format -- \"src/**/*.js\" --write && npm run-script lint:js src",
+    "precommit": "lint-staged",
+    "start": "npm run-script build",
+    "build": "rimraf ./dist && cp -r ./src ./dist"
+  },
+  "devDependencies": {
+    "@dtn/eslint-config": "^0.2.3",
+    "@dtn/prettier-config": "^0.2.2",
+    "eslint": "^4.19.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "~1.17.0"
+  }
+}

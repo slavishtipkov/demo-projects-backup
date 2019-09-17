@@ -1,0 +1,7 @@
+{
+  "extends": "@dtn/tslint-config",
+
+  "rules": {
+    "jsx-use-translation-function": false
+  }
+}

@@ -1,0 +1,41 @@
+export default {
+  common: {
+    redrawChart: "Redraw Chart",
+    labels: {
+      updatedAt: "Updated {{updatedAt}}",
+      location: "Location",
+      commodities: "Commodities",
+      additionalOptions: "Additional Options",
+      range: "Range",
+      deliveryEndDate: "Delivery End Date",
+      showCurrentBasis: "Basis",
+      show3YearAverageCashPrice: "3 Yr Average Cash Price",
+      show3YearAverageBasis: "3 Yr Average Basis",
+    },
+  },
+  errors: {
+    noDataErrorMessage: "No Data Available.",
+  },
+  chartLegend: {
+    currentCashPrice: "Cash Price",
+    yrCurrentCashPrice: "3 Yr Avg Cash Price",
+    currentBasis: "Basis",
+    yrCurrentBasis: "3 Yr Avg Basis",
+  },
+  deliveryEndDate: "Delivery end date",
+  updated: "Updated",
+  months: {
+    January: "January",
+    February: "February",
+    March: "March",
+    April: "April",
+    May: "May",
+    June: "June",
+    July: "July",
+    August: "August",
+    September: "September",
+    October: "October",
+    November: "November",
+    December: "December",
+  },
+};

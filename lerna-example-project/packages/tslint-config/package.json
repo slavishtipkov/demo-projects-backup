@@ -1,0 +1,17 @@
+{
+  "name": "@dtn/tslint-config",
+  "version": "0.2.2",
+  "main": "./index.js",
+  "peerDependencies": {
+    "tslint": ">= 5.9 < 6",
+    "typescript": ">= 2.9 < 3"
+  },
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "typescript": "3.4.3"
+  },
+  "dependencies": {
+    "tslint-immutable": "^4.5.4",
+    "tslint-react": "^3.5.1"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "@dtn/map-lib",
+  "version": "0.0.1",
+  "description": "Library for all things layered map",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "start": "tsc --watch",
+    "tsc": "tsc --build",
+    "build": "rimraf ./dist && tsc",
+    "test": "rimraf tmp/ && tsc --outDir tmp --module commonjs --target es2015 --allowJs true --declaration false && jest && rimraf tmp/",
+    "precommit": "lint-staged",
+    "format": "prettier --config .prettierrc.js",
+    "lint:js": "eslint --config .eslintrc.json",
+    "lint:ts": "tslint --config tslint.json --project tsconfig.json",
+    "lint": "npm run-script format -- \"src/**/*.{ts,tsx,js}\" --write && npm run-script lint:ts && npm run-script lint:js -- src"
+  },
+  "peerDependencies": {
+    "moment": ">= 2.20 < 3",
+    "moment-timezone": ">= 0.5 < 1",
+    "redux": ">= 4 < 5",
+    "redux-observable": ">= 1 < 2",
+    "rxjs": ">= 6 < 7"
+  },
+  "devDependencies": {
+    "@dtn/eslint-config": "^0.2.3",
+    "@dtn/api-lib": "^0.0.1",
+    "@dtn/i18n-lib": "^0.0.1",
+    "@dtn/polyfills-lib": "^0.0.4",
+    "@dtn/prettier-config": "^0.2.2",
+    "@dtn/ts-config": "^0.2.2",
+    "@dtn/tslint-config": "^0.2.2",
+    "eslint": "^4.19.1",
+    "jest": "^24.0.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "~1.17.0",
+    "tslint": "^5.9.1",
+    "typescript": "3.4.3"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tmp/**/__tests__/**/*.js?(x)"
+    ],
+    "moduleNameMapper": {
+      "^lodash-es$": "lodash"
+    }
+  }
+}

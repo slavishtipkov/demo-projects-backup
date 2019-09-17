@@ -1,0 +1,113 @@
+{
+  "apiKey": "apiKey",
+  "example_widget": "window.dtn.cashBids.createAdvancedCashBidsChartWidget;",
+  "example_code": "    \"container\": \"#cash-bids-chart-widget\",\r\n    \"siteId\": \"E0000927\",\r\n    \"defaultCashBid\": { cashBidId: 3161701, range: \"Y\" },\r\n    \"showCurrentBasis\": true,\r\n    \"show3YearAverageBasis\": true, \r\n    \"show3YearAverageCashPrice\": true,\r\n       callbacks:{\r\n         onCashBidChange: \"\"}",
+  "sections": [
+    {
+      "section_title": "Example",
+      "example": [
+        {
+          "workspaceId": "basic-cash-bids-chart-wrapper",
+          "textareaId": "basic-cash-bids-chart-config",
+          "widgetId": "cash-bids-chart-widget",
+          "style": "style=\"height: 100%; width: 100%; border: none;\"",
+          "example_code_start": "window.dtn.cashBids.createAdvancedCashBidsChartWidget({\r\n",
+          "example_code_end": "\r\n});"
+        }
+      ]
+    },
+    {
+      "section_title": "Types",
+      "doc": [
+        {
+          "shared": [{ "name": "units_type" }]
+        },
+        {
+          "doc_title": "SiteId",
+          "doc_code": "type SiteId = string;",
+          "doc_description": "This type describe site id data that may be used to supply the siteId property."
+        },
+        {
+          "doc_title": "CashBidId",
+          "doc_code": "type CashBidId = number;",
+          "doc_description": "This type describe cash bid id that may be used to supply the cashBidId property."
+        }
+      ]
+    },
+    {
+      "section_title": "Configuration",
+      "doc": [
+        {
+          "shared": [{ "name": "apiKey" }, { "name": "container" }, { "name": "units" }]
+        },
+        {
+          "doc_title": "siteId",
+          "doc_code": "siteId: SiteId;",
+          "doc_description": "The Site Identifier used when setting up the account in Portal Publisher."
+        },
+        {
+          "doc_title": "defaultCashBid",
+          "doc_code": "defaultCashBid?: { cashBidId: CashBidId; range?: string = \"Y\" } | { locationId?: number; commodityId?: number; range?: string= \"Y\" };",
+          "doc_description": "Object containing the identifier for a specific cash bid and an optional range or object with optional locationId, commodityId and range. \r\n Range is in format: Y=Year, D=Daily, W=Weekly, M=Monthly, X-M=X Months Intervals, where X represents a number of months. So 5-M represents 5 months intervals. \r\n Range must be greater than 1 day and less than 1 year. Default set to \"Y\"."
+        },
+        {
+          "doc_title": "showCurrentBasis",
+          "doc_code": "showCurrentBasis?: boolean = true;",
+          "doc_description": "Display the current basis price line. Default set to true."
+        },
+        {
+          "doc_title": "show3YearAverageBasis",
+          "doc_code": "show3YearAverageBasis?: boolean = true;",
+          "doc_description": "Display the 3 year average basis price line if there is data for it. Default set to true."
+        },
+        {
+          "doc_title": "show3YearAverageCashPrice",
+          "doc_code": "show3YearAverageCashPrice?: boolean = true;",
+          "doc_description": "Display the 3 year average cash price line if there is data for it. Default set to true."
+        }
+      ]
+    },
+    {
+      "section_title": "Methods",
+      "doc": [
+        {
+          "doc_title": "setCashBid",
+          "doc_code": "setCashBid: (\r\n     cashBid: \r\n       { cashBidId: CashBidId; range?: string = \"Y\" } | \r\n       { locationId?: number; commodityId?: number; range?: string= \"Y\" }\r\n) => void;",
+          "doc_description": "Set the portal cash bid and load the widget with it."
+        }
+      ]
+    },
+    {
+      "section_title": "Callbacks",
+      "doc": [
+        {
+          "doc_title": "onCashBidChange",
+          "doc_code": "onCashBidChange: (\r\n     cashBid: { \r\n          locationId: number; \r\n          commodityId: number; \r\n          range: string; \r\n          deliveryEndDate: Date \r\n    }\r\n);",
+          "doc_description": "This callback will be called whenever the chart is redraw. The callback takes a single argument which represents the new portal cash bid state."
+        }
+      ]
+    }
+  ],
+  "preview": {
+    "lib-name": "cashBids",
+    "script": "./cash-bids-chart-widget.js",
+    "workspaceId": "basic-cash-bids-wrapper",
+    "textareaId": "basic-cash-bids-chart-config",
+    "widgetId": "cash-bids-chart-widget",
+    "function": "createAdvancedCashBidsChartWidget",
+    "config": {
+      "siteId": "'E0000927'",
+      "defaultCashBid": {
+        "cashBidId": 3161701,
+        "range": "Y"
+      },
+      "showCurrentBasis": true,
+      "show3YearAverageBasis": true,
+      "show3YearAverageCashPrice": true,
+      "units": "Imperial",
+      "callbacks": {
+        "onCashBidChange": ""
+      }
+    }
+  }
+}

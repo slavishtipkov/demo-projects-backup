@@ -1,0 +1,56 @@
+.widget-table-title {
+  margin: 5px 0 15px 0;
+}
+
+.widget-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.widget-thead {
+  border-bottom: 2px solid rgb(223, 225, 230);
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+  font-style: normal;
+  font-weight: 400;
+}
+.th {
+  color: rgb(94, 108, 132);
+  box-sizing: border-box;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+  padding: 4px 0;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+}
+.th1 {
+  width: 30%;
+}
+.th2 {
+  width: auto;
+}
+
+.th3 {
+  width: 60px;
+}
+.even {
+  background-color: #f8f8f8;
+}
+.odd {
+}
+.widget-table td {
+  text-align: left;
+  overflow: hidden;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  padding: 8px 4px;
+}

@@ -1,0 +1,45 @@
+export default {
+  common: {
+    labels: {
+      updatedAt: "Updated {{updatedAt}}",
+      type: "Type",
+      interval: "Interval",
+      duration: "Duration",
+      noDescription: "No Description",
+    },
+    months: {
+      monthsShort: {
+        Jan: "Jan",
+        Feb: "Feb",
+        Mar: "Mar",
+        Apr: "Apr",
+        May: "May",
+        Jun: "Jun",
+        Jul: "Jul",
+        Aug: "Aug",
+        Sep: "Sep",
+        Oct: "Oct",
+        Nov: "Nov",
+        Dec: "Dec",
+      },
+      monthsFull: {
+        January: "January",
+        February: "February",
+        March: "March",
+        April: "April",
+        May: "May",
+        June: "June",
+        July: "July",
+        August: "August",
+        September: "September",
+        October: "October",
+        November: "November",
+        December: "December",
+      },
+    },
+  },
+  errors: {
+    noChartDataForSymbol: "No Data Available",
+    seeDocumentation: "For more details see documentation ",
+  },
+};

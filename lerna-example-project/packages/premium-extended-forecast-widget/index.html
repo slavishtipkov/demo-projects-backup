@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Premium Extended Forecast Widget</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      #widget-container {
+        margin: 100px auto;
+        width: 80vw;
+        height: auto;
+      }
+    </style>
+
+    <script src="./dist/premium-extended-forecast-widget.js"></script>
+  </head>
+  <body>
+    <div id="widget-container"></div>
+
+    <script>
+      (async function() {
+        window.widget = await window.dtn.forecast.createPremiumExtendedForecastWidget({
+          apiKey: "7uyr5xTQzL9OZV7QmHFDr920ZGHG7vI3",
+          container: "#widget-container",
+          baseUrl: "https://test-api.dtn.com",
+        });
+      })();
+    </script>
+  </body>
+</html>

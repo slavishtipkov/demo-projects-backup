@@ -1,0 +1,139 @@
+{
+  "apiKey": "apiKey",
+  "example_widget": "window.dtn.map.createInteractiveMapWidget;",
+  "example_code": "    \"container\": \"#interactive-map-widget-container\",\r\n    \"defaultLayers\": \"RADAR\"",
+  "preview": {
+    "lib-name": "map",
+    "script": "./interactive-map-widget.js",
+    "function": "createInteractiveMapWidget",
+    "workspaceId": "interactive-map-widget-wrapper",
+    "textareaId": "interactive-map-widget-config",
+    "widgetId": "interactive-map-widget-container",
+    "config": {
+      "defaultLayers": "\"RADAR\""
+    }
+  },
+  "sections": [
+    {
+      "section_title": "Example",
+      "example": [
+        {
+          "workspaceId": "interactive-map-widget-wrapper",
+          "textareaId": "interactive-map-widget-config",
+          "widgetId": "interactive-map-widget-container",
+          "style": "style=\"height: 400px; width: 100%;\"",
+          "example_code_start": "window.dtn.map.createInteractiveMapWidget({\r\n",
+          "example_code_end": "\r\n});"
+        }
+      ]
+    },
+    {
+      "section_title": "Types",
+      "doc": [
+        {
+          "doc_title": "Layer IDs",
+          "doc_code": "type LayerId =\r\n    | \"RADAR\"\r\n    | \"SATELLITE\"\r\n    | \"SURFACE_WINDS\"\r\n    | \"NWS_BULLETINS\"\r\n    | \"JET_STREAM_WINDS\"\r\n    | \"FRONTS\"\r\n    | \"TROPICAL_FORECAST\"\r\n    | \"SOIL_TEMPERATURES\"\r\n    | \"CROP_MOISTURE_INDEX\"\r\n    | \"RAINFALL_ESTIMATE\"\r\n    | \"GROWING_DEGREE_UNITS\"\r\n    | \"GROWING_DEGREE_UNITS_CONTOUR\"\r\n    | \"PALMER_DROUGHT_INDEX\"\r\n    | \"DROUGHT_MONITOR\"",
+          "doc_description": "These are the available layer IDs for use when configuring the Interactive Map Widget. <ul style='list-style: disc inside;'><li>RADAR - Infrared radar for North America.</li><li>SATELLITE - Infrared satellite for North America.</li><li>SURFACE_WINDS - Surface winds for North America.</li><li>NWS_BULLETINS - National Weather Service (NWS) bulletins for The U.S.A.</li><li>JET_STREAM_WINDS - Jet Stream winds at six hour forecast for North America.</li><li>FRONTS - Surface weather fronts for North America.</li><li>TROPICAL_FORECAST - Tropical forecast for North America.</li><li>SOIL_TEMPERATURES - 4\" soil temperatures for North America.</li><li>CROP_MOISTURE_INDEX - Crop moisture index for North America.</li><li>RAINFALL_ESTIMATE - 24-hour rainfall estimate for North America.</li><li>GROWING_DEGREE_UNITS - Growing degree units for North America.</li><li>GROWING_DEGREE_UNITS_CONTOUR - Growing degree units contour for North America.</li><li>PALMER_DROUGHT_INDEX - Palmer drought index for North America.</li><li>DROUGHT_MONITOR - Drought monitor for North America.</li></ul>"
+        },
+        {
+          "doc_title": "Coordinates",
+          "doc_code": "type Coordinates = { latitude: number; longitude: number; }",
+          "doc_description": "A coordinate represents a point on the globe by latitude and longitude."
+        },
+        {
+          "doc_title": "Bounding Box",
+          "doc_code": "type BoundingBox = { southWest: Coordinates; northEast: Coordinates; }",
+          "doc_description": "A bounding box represents an area of the globe. It is defined by its southwestern and northeastern coordinates."
+        },
+        {
+          "doc_title": "Location",
+          "doc_code": "type Location = BoundingBox | (Coordinates & { zoom?: number })",
+          "doc_description": "The location type represents the multiple types that can be used to manipulate the map's camera."
+        },
+        {
+          "doc_title": "Camera",
+          "doc_code": "type Camera = {\r\n    pitch: number;\r\n    bearing: number;\r\n    center: Coordinates;\r\n    boundingBox: BoundingBox;\r\n    zoom: number;\r\n  }",
+          "doc_description": "The Camera type represents the data"
+        }
+      ]
+    },
+    {
+      "section_title": "Configuration",
+      "doc": [
+        {
+          "shared": [{ "name": "apiKey" }, { "name": "container" }, { "name": "units" }]
+        },
+        {
+          "doc_title": "defaultLocation",
+          "doc_code": "defaultLocation?: Location = {\r\n    longitude: -93.2563945,\r\n    latitude: 44.7972212,\r\n    zoom: 12\r\n  };",
+          "doc_description": "Specify the default location of the map."
+        },
+        {
+          "doc_title": "defaultLayers",
+          "doc_code": "defaultLayers?: LayerId | LayerId[] = undefined;",
+          "doc_description": "Specify which layer(s) should be active on load. This option can take a single LayerId, or an array of multiple LayerIds."
+        },
+        {
+          "doc_title": "interactive",
+          "doc_code": "interactive?: boolean = true;",
+          "doc_description": "Specify if the map should be interactive. If false, zoom and pan will be disabled for users, but can still be set programmatically."
+        }
+      ]
+    },
+    {
+      "section_title": "Methods",
+      "doc": [
+        {
+          "doc_title": "setLocation",
+          "doc_code": "setLocation: (location: Location, animate = true) => void;",
+          "doc_description": "Update the location of the map. Optionally specify if the transition should be animated or not."
+        },
+        {
+          "doc_title": "addLayer",
+          "doc_code": "addLayer: (layerId: LayerId) => void;",
+          "doc_description": "Add a new layer to the map."
+        },
+        {
+          "doc_title": "removeLayer",
+          "doc_code": "removeLayer: (layerId: LayerId) => void;",
+          "doc_description": "Remove an existing layer from the map."
+        },
+        {
+          "doc_title": "startAnimation",
+          "doc_code": "startAnimation: () => void;",
+          "doc_description": "Start the animation playback of all active animatable layers."
+        },
+        {
+          "doc_title": "stopAnimation",
+          "doc_code": "stopAnimation: () => void;",
+          "doc_description": "Stop animation playback."
+        }
+      ]
+    },
+    {
+      "section_title": "Callbacks",
+      "doc": [
+        {
+          "doc_title": "onLayerAdded",
+          "doc_code": "onLayerAdded: (layerId: LayerId) => void;",
+          "doc_description": "This callback is called whenever a layer is added to the map."
+        },
+        {
+          "doc_title": "onLayerRemoved",
+          "doc_code": "onLayerRemoved: (layerId: LayerId) => void;",
+          "doc_description": "This callback is called whenever a layer is removed from the map."
+        },
+        {
+          "doc_title": "onAnimationStart",
+          "doc_code": "onAnimationStart: () => void;",
+          "doc_description": "This callback is called whenever animation playback is started."
+        },
+        {
+          "doc_title": "onAnimationStop",
+          "doc_code": "onAnimationStop: () => void;",
+          "doc_description": "This callback is called whenever animation playback is stopped."
+        }
+      ]
+    }
+  ]
+}

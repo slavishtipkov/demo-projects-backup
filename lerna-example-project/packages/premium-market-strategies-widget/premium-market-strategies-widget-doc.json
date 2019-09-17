@@ -1,0 +1,86 @@
+{
+  "apiKey": "apiKeyPremium",
+  "example_widget": "window.dtn.marketStrategies.createPremiumMarketStrategiesWidget;",
+  "example_code": "        \"container\": \"#premium-market-strategies-widget\",\r\n        \"units\": \"Imperial\",\r\n        \"userId\": \"firstName.lastName\",\r\n        \"defaultCommodity\": \"CORN\",\r\n        \"showCommodities\": true,\r\n        \"callbacks\": {\r\n            onCommodityChange: \"\"\r\n        }",
+  "preview": {
+    "lib-name": "marketStrategies",
+    "workspaceId": "premium-market-strategies-wrapper",
+    "textareaId": "premium-market-strategies-config",
+    "widgetId": "premium-market-strategies-widget",
+    "script": "./premium-market-strategies-widget.js",
+    "function": "createPremiumMarketStrategiesWidget",
+    "config": {
+      "units": "'Imperial'",
+      "userId": "'firstname.lastname'",
+      "showCommodities": true,
+      "defaultCommodity": "CORN",
+      "callbacks": {
+        "onCommodityChange": ""
+      }
+    }
+  },
+  "sections": [
+    {
+      "section_title": "Example",
+      "example": [
+        {
+          "workspaceId": "premium-market-strategies-wrapper",
+          "textareaId": "premium-market-strategies-config",
+          "widgetId": "premium-market-strategies-widget",
+          "style": "style=\"height: 100%; width: 100%; border: none !important;\"",
+          "example_code_start": "window.dtn.marketStrategies.createPremiumMarketStrategiesWidget({\r\n",
+          "example_code_end": "\r\n});"
+        }
+      ]
+    },
+    {
+      "section_title": "Types",
+      "doc": [
+        {
+          "shared": [{ "name": "units_type" }]
+        },
+        {
+          "doc_title": "Commodities",
+          "doc_code": "type Commodities = \r\n  | \"CANOLA\",\r\n  | \"CATTLE\",\r\n  | \"CORN\",\r\n  | \"COTTON\",\r\n  | \"CRUDE_OIL\",\r\n  | \"DAIRY\",\r\n  | \"DIESEL\",\r\n  | \"FEED_CORN\",\r\n  | \"GASOLINE\",\r\n  | \"HRS_WHEAT\",\r\n  | \"NATURAL_GAS\",\r\n  | \"RICE\",\r\n  | \"SOYBEAN_MEAL\",\r\n  | \"SOYBEANS\",\r\n  | \"SRW_WHEAT\",\r\n  | \"SWINE\";",
+          "doc_description": "This type describe possible commodities to display."
+        }
+      ]
+    },
+    {
+      "section_title": "Configuration",
+      "doc": [
+        { "shared": [{ "name": "apiKey" }, { "name": "container" }, { "name": "userId" }] },
+        {
+          "doc_title": "defaultCommodity",
+          "doc_code": "defaultCommodity: Commodities;",
+          "doc_description": "Set default commodities to display on widget initialization. Required field."
+        },
+        {
+          "doc_title": "showCommodities",
+          "doc_code": "showCommodities?: Commodities[] | boolean  = true;",
+          "doc_description": "Whether or not to display commodities. It is possible to supply an array of commodities to display. Default set to true - lists all available Commodities."
+        }
+      ]
+    },
+    {
+      "section_title": "Methods",
+      "doc": [
+        {
+          "doc_title": "setCommodity",
+          "doc_code": "setCommodity: (commodity: Commodities) => void;",
+          "doc_description": "Set commodity and load the widget with it."
+        }
+      ]
+    },
+    {
+      "section_title": "Callbacks",
+      "doc": [
+        {
+          "doc_title": "onCommodityChange",
+          "doc_code": "onCommodityChange: (commodity: Commodities) => void;",
+          "doc_description": "This callback will be called whenever the commodity state changes. The callback takes a single argument which represents the new commodity state."
+        }
+      ]
+    }
+  ]
+}

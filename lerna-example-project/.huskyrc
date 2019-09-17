@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "pre-commit": "lint-staged && lerna run precommit --stream",
+    "pre-push": "lint-staged && lerna run test --stream",
+    "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "apiKey": "apiKey",
+  "example_widget": " window.dtn.futures.createFuturesChartWidget;",
+  "example_code": "    \"container\": \"#futures-chart-widget\",\r\n   \"units\": \"Imperial\",\r\n   \"symbol\": \"@C@1\",\r\n   \"showSymbol\": true,\r\n   \"showSymbolDescription\": true,\r\n   \"defaultChartType\": \"LINE\", \r\n   \"defaultChartInterval\": \"M\", \r\n callbacks:{onChartDisplayChange: \"\", onChartUpdate: \"\"} ",
+  "sections": [
+    {
+      "section_title": "Example",
+      "example": [
+        {
+          "workspaceId": "futures-chart-wrapper",
+          "textareaId": "futures-chart-config",
+          "widgetId": "futures-chart-widget",
+          "style": "style=\"height: 100%; width: 100%; border: none;\"",
+          "example_code_start": "window.dtn.futures.createFuturesChartWidget({\r\n",
+          "example_code_end": "\r\n});"
+        }
+      ]
+    },
+    {
+      "section_title": "Types",
+      "doc": [
+        {
+          "shared": [{ "name": "units_type" }]
+        },
+        {
+          "doc_title": "FuturesSymbol",
+          "doc_code": "type FuturesSymbol = string;",
+          "doc_description": "This type describe futures symbol data that may be used to supply the symbol property."
+        },
+        {
+          "doc_title": "ChartType",
+          "doc_code": "type ChartType = \"LINE\" | \"BAR\" | \"CANDLESTICK\";",
+          "doc_description": "This type describe chart types that may be used to supply the defaultChartType property."
+        },
+        {
+          "doc_title": "ChartInterval",
+          "doc_code": "type ChartInterval = string;",
+          "doc_description": "This type describe chart interval data that may be used to supply the defaultChartInterval property."
+        }
+      ]
+    },
+    {
+      "section_title": "Configuration",
+      "doc": [
+        {
+          "shared": [{ "name": "apiKey" }, { "name": "container" }, { "name": "units" }]
+        },
+        {
+          "doc_title": "symbol",
+          "doc_code": "symbol: FuturesSymbol;",
+          "doc_description": "The symbol used for drawing the chart."
+        },
+        {
+          "doc_title": "showSymbol",
+          "doc_code": "showSymbol?: boolean = true;",
+          "doc_description": "Toggle symbol name showing. Default set to true."
+        },
+        {
+          "doc_title": "showSymbolDescription",
+          "doc_code": "showSymbolDescription?: boolean = true;",
+          "doc_description": "Toggle symbol description showing. Default set to true."
+        },
+        {
+          "doc_title": "defaultChartType",
+          "doc_code": "defaultChartType?: ChartType = \"LINE\";",
+          "doc_description": "The default chart type, used for initial chart drawing. Default set to \"LINE\"."
+        },
+        {
+          "doc_title": "defaultChartInterval",
+          "doc_code": "defaultChartInterval?: ChartInterval = \"M\";",
+          "doc_description": "The default chart interval used for chart drawing. Interval code is in format: D=Daily, W=Weekly, M=Monthly, Mi=Minutes, X-Mi=X Minute Intervals, where X represents a number of minutes. So 5-Mi represents 5 minute intervals. Default set to \"M\"."
+        }
+      ]
+    },
+    {
+      "section_title": "Methods",
+      "doc": [
+        {
+          "doc_title": "setSymbol",
+          "doc_code": "setSymbol: (\r\n  symbol: FuturesSymbol }\r\n) => void;",
+          "doc_description": "Set the symbol of the chart and reload it."
+        },
+        {
+          "doc_title": "setChartDisplay",
+          "doc_code": "setChartDisplay: (\r\n  displayOptions: {type?: ChartType, interval?: ChartInterval } }\r\n) => void;",
+          "doc_description": "Set the type and the default interval of the chart."
+        }
+      ]
+    },
+    {
+      "section_title": "Callbacks",
+      "doc": [
+        {
+          "doc_title": "onChartDisplayChange",
+          "doc_code": "onChartDisplayChange: (\r\n  newDisplayOptions: { type: ChartType, interval: ChartInterval, duration: ChartInterval } }\r\n) => void;",
+          "doc_description": "This callback will be called whenever the cart type, interval or duration are changed."
+        },
+        {
+          "doc_title": "onChartUpdate",
+          "doc_code": "onChartUpdate: (\r\n  newSymbol: FuturesSymbol } }\r\n) => void;",
+          "doc_description": "This callback will be called whenever the symbol of the chart is changed"
+        }
+      ]
+    }
+  ],
+  "preview": {
+    "lib-name": "futures",
+    "script": "./futures-chart-widget.js",
+    "workspaceId": "futures-chart-wrapper",
+    "textareaId": "futures-chart-config",
+    "widgetId": "futures-chart-widget",
+    "function": "createFuturesChartWidget",
+    "config": {
+      "units": "'Imperial'",
+      "symbol": "@C@1",
+      "showSymbol": true,
+      "showSymbolDescription": true,
+      "defaultChartType": "Line",
+      "defaultChartInterval": "M",
+      "callbacks": {
+        "onChartDisplayChange": "",
+        "onChartUpdate": ""
+      }
+    }
+  }
+}

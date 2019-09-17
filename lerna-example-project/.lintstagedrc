@@ -1,0 +1,5 @@
+{
+  "{package,lerna}.json": ["npm run-script format -- --write", "git add"],
+  ".commitlintrc.js":  ["npm run-script format -- --write", "git add"],
+  "readme.md": ["npm run-script format -- --write", "git add"]
+}

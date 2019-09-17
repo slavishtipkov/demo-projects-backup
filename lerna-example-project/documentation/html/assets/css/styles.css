@@ -1,0 +1,168 @@
+html,
+body {
+  color: #59595b;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.125;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 690px;
+  padding: 20px 10px;
+}
+
+.h {
+  font-weight: bold;
+}
+
+.h--1 {
+  font-size: 28px;
+  line-height: 1.14;
+}
+
+.h--2 {
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.h--3 {
+  color: #a0a9ac;
+  font-size: 18px;
+  line-height: 1.16;
+}
+
+.p {
+  color: #59595b;
+  line-height: 1.5;
+}
+
+.p + .p {
+  margin-top: 25px;
+}
+
+.p--note {
+  padding: 20px 10px;
+  background-color: #ffffa9;
+}
+
+.intro {
+  margin-bottom: 30px;
+}
+
+.intro__title {
+  margin-bottom: 11px;
+}
+
+.section {
+  display: block;
+}
+
+.section + .section {
+  margin-top: 50px;
+}
+
+.section__title {
+  margin-bottom: 14px;
+}
+
+.code-sample {
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+}
+
+.code-sample > code {
+  border-radius: 5px;
+  padding: 20px 15px;
+}
+
+.code-sample-editable > code {
+  padding: 40px 5px 20px 15px;
+}
+
+.doc {
+  display: block;
+}
+
+.doc + .doc {
+  margin-top: 22px;
+}
+
+.doc__title {
+  margin-bottom: 9px;
+}
+
+.doc__code {
+  margin-bottom: 15px;
+}
+
+.doc__description {
+  display: block;
+}
+
+.source {
+  word-break: break-all;
+  display: flex;
+  flex-direction: column;
+}
+
+.source + .source {
+  margin-top: 10px;
+}
+
+@media (min-width: 500px) {
+  .source {
+    flex-direction: row;
+  }
+}
+
+.source__target {
+  color: #a0a9ac;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 500px) {
+  .source__target {
+    margin-bottom: 0;
+    width: 13%;
+  }
+}
+
+.source__link {
+  font-family: "Courier New", Courier, monospace;
+  width: 87%;
+}
+
+.example {
+  display: block;
+}
+
+.example__widget {
+  border: 1px solid #bfbfbf;
+  margin-bottom: 10px;
+}
+
+.screenshot {
+  display: block;
+  padding: 30px;
+  background-color: #dddddd;
+}
+
+.screenshot > img {
+  display: inline-block;
+  width: 100%;
+}
+
+.table-of-contents {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.table-of-contents > li {
+  display: list-item;
+}
+
+.table-of-contents > li + li {
+  margin-top: 5px;
+}

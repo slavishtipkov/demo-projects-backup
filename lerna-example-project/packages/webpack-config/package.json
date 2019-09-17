@@ -1,0 +1,27 @@
+{
+  "name": "@dtn/webpack-config",
+  "version": "0.2.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "npm run-script build",
+    "build": "rm -rf ./dist && cp -r ./src ./dist",
+    "precommit": "lint-staged",
+    "format": "prettier --config .prettierrc.js",
+    "lint:js": "eslint --config .eslintrc.json",
+    "lint": "npm run-script format -- \"src/**/*.js\" --write && npm run-script lint:js -- src"
+  },
+  "peerDependencies": {
+    "webpack-cli": ">= 2 < 3",
+    "webpack": ">= 4 < 5"
+  },
+  "dependencies": {
+    "ts-loader": "^4.2.0"
+  },
+  "devDependencies": {
+    "@dtn/eslint-config": "^0.2.3",
+    "@dtn/prettier-config": "^0.2.2",
+    "eslint": "^4.19.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "~1.17.0"
+  }
+}

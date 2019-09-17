@@ -1,0 +1,11 @@
+{
+  "name": "@dtn/ts-config",
+  "version": "0.2.2",
+  "main": "./index.js",
+  "peerDependencies": {
+    "typescript": ">= 3 < 4"
+  },
+  "devDependencies": {
+    "typescript": "3.4.3"
+  }
+}

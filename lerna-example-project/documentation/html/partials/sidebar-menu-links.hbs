@@ -1,0 +1,7 @@
+{{#each links}}
+  {{#if ../landing}}
+    <li> <a href="{{url}}" class="{{class}}">{{title}}</a></li>
+  {{else}}
+    <li> <a href="../{{url}}" class="{{class}}">{{title}}</a></li>
+  {{/if}}
+{{/each}}

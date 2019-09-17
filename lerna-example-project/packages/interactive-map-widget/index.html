@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>DTN Interactive Map Widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+    <script type="text/javascript" src="./dist/interactive-map-widget.js"></script>
+  </head>
+
+  <body>
+    <div id="map-widget-container" style="height: 100vh; width: 100vw;"></div>
+
+    <script>
+      (async function() {
+        const onLayerAdded = layerId => console.log({ addedLayer: layerId });
+        const onLayerRemoved = layerId => console.log({ removedLayer: layerId });
+        const onAnimationStart = () => console.log("onAnimationStart");
+        const onAnimationStop = () => console.log("onAnimationStop");
+        const onMapPress = coordinates => console.log({ coordinates });
+
+        let map = (window.map = await window.dtn.map.createInteractiveMapWidget({
+          container: "#map-widget-container",
+          apiKey: "7uyr5xTQzL9OZV7QmHFDr920ZGHG7vI3",
+          baseUrl: "https://test-api.dtn.com",
+          defaultLocation: {
+            northEast: { latitude: 75, longitude: -40 },
+            southWest: { latitude: 0, longitude: -180 },
+          },
+          callbacks: {
+            onLayerAdded,
+            onLayerRemoved,
+            onAnimationStart,
+            onAnimationStop,
+            onMapPress,
+          },
+        }));
+      })();
+    </script>
+  </body>
+</html>

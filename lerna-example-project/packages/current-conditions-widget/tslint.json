@@ -1,0 +1,6 @@
+{
+  "extends": "@dtn/tslint-config",
+  "rules": {
+    "typedef": false
+  }
+}

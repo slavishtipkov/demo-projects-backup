@@ -1,0 +1,269 @@
+<!doctype html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>DTN API & Widget Documentation</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png">
+        <meta name="description" content="DTN API & Widget Documentation">
+        <meta name="author" content="DTN">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../assets/css/nav.css">
+        <link rel="stylesheet" href="../assets/css/main.css">
+        <link rel="stylesheet" href="../assets/css/widget.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/styles.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/atom-one-light.css" />
+        <script type="text/javascript" src="../assets/js/highlight.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script>
+          var oReq = new XMLHttpRequest();
+            oReq.addEventListener("load", reqListener);
+            oReq.open("GET", "../config.json");
+            oReq.send();
+          function reqListener( ) {
+            var data = JSON.parse(this.responseText);
+            var contentDomain = data.contentDomain;
+            var JSLink = data.hostname + '{{widget_name_dash}}/{{widgetScriptFileName}}.js';
+            var JSElement = document.createElement('script');
+            var installationLink = document.getElementsByClassName('jsLink')[0];
+            widgetToken = data.{{{ apiKey }}};
+            baseUrl = data.baseUrl;
+            setMenuLinks(contentDomain);
+            installationLink.href = JSLink;
+            installationLink.innerHTML = JSLink;
+            JSElement.src = JSLink;
+            JSElement.onload = initWidget;
+            document.getElementsByTagName('head')[0].appendChild(JSElement);
+            function initWidget() {
+              widgetFunc = {{{ example_widget }}}
+              widgetNameStr = "{{ widget_title }}".replace(/ /g, "");
+              widgetNameStr = deCapitalize(widgetNameStr);
+              var widgetConfig = { "apiKey": widgetToken,  {{{ example_code }}} };
+              var confString = JSON.stringify(widgetConfig, null, 2).slice(1, -1);
+              document.getElementById('{{preview.textareaId}}').textContent = confString;
+              widgetConfig.baseUrl = baseUrl;
+              widgetFunc(widgetConfig)
+                .then( function(api) {
+                  window[widgetNameStr] = api;
+                })
+              hljs.initHighlighting();
+            }
+          }
+        </script>
+        <style>
+          .{{widget_name_dash}} { color: #0093D0;}
+        </style>
+    </head>
+
+    <body>
+        <nav class="nav-mobile desktop-hide">
+              <img src="../assets/img/close.png" alt="close" class="nav-toggle right">
+
+            <ul class="main-links">
+              <li>
+                <a href="" class="contentDomainLink">
+                  <p class="bold font-18 gray-light">Getting Started</p>
+                </a>
+              </li>
+              <li>
+                <a href="" class="contentDomainApiLink">
+                  <p class="bold font-18 gray-light">APIs</p>
+                </a>
+              </li>
+              <li>
+                <a href="" class="contentDomainSupportLink">
+                  <p class="bold font-18 gray-light">Support</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="sidebar-menu">
+              <li>
+                <a href="../index.html">
+                  <p class="menu-heading bold font-18 gray-light">Composable Widgets</p>
+                </a>
+              </li>
+                {{> sidebar }}
+            </ul>
+
+        </nav>
+        <div class="header-widget header-static flex flex-space-between flex-centered-v">
+
+                <img src="../assets/img/hamburger.png" alt="Menu" class="nav-toggle desktop-hide pointer" />
+
+            <a href="" class="logo-link">
+              <div class="brand flex flex-centered-v mobile-center">
+                <img src="https://www.dtn.com/wp-content/uploads/2018/11/logo-dtn-white.png" alt="DTN logo" class="logo" width="64" height="30">
+                Content Services
+              </div>
+            </a>
+            <div class="top-menu mobile-hide">
+                <ul class="menu" id="top-menu">
+                    <li>
+                      <a href="" class="contentDomainLink">
+                        Getting Started
+                      </a>
+                    </li>
+
+                    <li class="active">
+                      <a href="../index.html">
+                        Composable Widgets
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="" class="contentDomainApiLink">
+                        APIs
+                      </a>
+                    </li>
+                    <li>
+                      <a href="" class="contentDomainSupportLink">
+                        Support
+                      </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container flex">
+            <div class="nav nav-static expanded mobile-hide">
+                <h1 class="menu-heading bold font-18">Composable Widgets</h1>
+                <ul class="sidebar-menu">
+                    {{> sidebar }}
+                </ul>
+            </div>
+            <div class="content">
+                <div class="intro">
+                    <div class="intro__title flex flex-space-between flex-wrap">
+                        <h1 class="h h--1">{{ widget_title }}</h1>
+                        {{#if version-select}}
+                          <select onchange="window.location.href = this.value;">
+                            {{#each version-select}}
+                            <option value="{{url}}" {{selected}}>
+                              {{title}}
+                            </option>
+                            {{/each}}
+                          </select>
+                        {{/if}}
+                    </div>
+                    <p class="p">{{ description }}</p>
+                </div>
+
+                {{#each sections }}
+                    <div class="section">
+                        <div class="section__title">
+                            <h2 class="h h--2">{{ section_title }}</h2>
+                        </div>
+
+
+                    {{#if source }}
+                        {{#each source }}
+                            <div class="source">
+                                <div class="source__target">{{ target }}</div>
+                                <div class="source__link">
+                                    <a href="{{ link }}" target="__blank" class="link {{class}}" {{download}}>{{ link }}</a>
+                                </div>
+                            </div>
+                        {{/each }}
+                    {{/if }}
+
+                    {{#if example }}
+                      <div class="example">
+                        {{#each example }}
+                          <div class="example__widget" {{{style}}}>
+                            <div id="{{widgetId}}" style="width: 100%; height: 100%;"></div>
+                          </div>
+
+                          <div class="example__source">
+                            <pre class="code-sample code-sample-editable">
+                              <code class="typescript">{{ example_code_start }} <code class="typescript" id="{{textareaId}}" contenteditable="true" spellcheck="false" name="contentEditableConfig">
+
+</code>
+                                <span>{{ example_code_end }}</span>
+                              </code>
+                            </pre>
+                            <button class="run-btn" onclick="createWidget()">Run</button>
+                          </div>
+                        {{/each }}
+                      </div>
+                    {{/if }}
+
+                    {{#if doc }}
+                        {{#each doc }}
+                          {{#if shared}}
+                            {{#each shared }}
+                                  {{> (lookup . 'name')}}
+
+                            {{/each}}
+                          {{else}}
+                            <div class="doc">
+                                <div class="doc__title">
+                                    <h3 class="h h--3">{{ doc_title }}</h3>
+                                </div>
+                                <div class="doc__code">
+                                    <pre class="code-sample"><code class="typescript">{{ doc_code }}</code></pre>
+                                </div>
+                                <div class="doc__description">
+                                    <p class="p">
+                                        {{{ doc_description }}}
+                                    </p>
+                                </div>
+                            </div>
+                          {{/if}}
+                        {{/each }}
+                    {{/if }}
+                    </div>
+                {{/each }}
+            </div>
+        </div>
+        <div class="footer flex flex-centered-v flex-center">
+          <div class="copyright">Copyright © 2018-2019</div>
+        </div>
+        <script>
+          function createWidget() {
+            var previewTextarea = document.getElementById('{{preview.textareaId}}');
+            try{
+              JSON.parse("{" + previewTextarea.textContent + "}");
+            } catch (e) {
+              alert(e);
+            }
+
+            var widgetConfig = JSON.parse("{" + previewTextarea.textContent + "}", reviver);
+            var previewObj = JSON.parse("{" + previewTextarea.textContent + "}");
+            var previewJSON = JSON.stringify(previewObj, null, 2).slice(1, -1);
+
+            previewTextarea.textContent = previewJSON;
+            hljs.highlightBlock(previewTextarea);
+
+            var parentNode = document.querySelector("#{{preview.widgetId}}").parentNode;
+            parentNode.removeChild(document.querySelector("#{{preview.widgetId}}"));
+            var divWrapper = document.createElement("DIV");
+            var attClass = document.createAttribute("class");
+            attClass.value = 'widget';
+            var attId = document.createAttribute("id");
+            attId.value = '{{preview.widgetId}}';
+            divWrapper.setAttributeNode(attClass);
+            divWrapper.setAttributeNode(attId);
+            if ("{{preview.widgetId}}" === "map-widget-example") {
+               var attStyle = document.createAttribute("style");
+               attStyle.value = "width: 100%; height: 100%; position: relative; overflow: hidden;";
+               divWrapper.setAttributeNode(attStyle);
+            }
+            parentNode.appendChild(divWrapper);
+
+            widgetFunc({
+              apiKey: widgetConfig.apiKey || widgetToken,
+              baseUrl: baseUrl,
+              {{#each preview.config as |value key|}}
+                {{key}}: widgetConfig.{{{key}}},
+              {{/each}}
+              container: document.querySelector("#{{preview.widgetId}}"),
+            })
+            .then(function (api) {
+              window[widgetNameStr] = api;
+            })
+          }
+        </script>
+    </body>
+</html>

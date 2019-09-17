@@ -1,0 +1,3 @@
+{
+  "extends": "@dtn/tslint-config"
+}
