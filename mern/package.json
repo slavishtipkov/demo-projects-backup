@@ -40,7 +40,7 @@
     "html-webpack-template": "^6.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "mongodb": "^3.3.0-beta2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "sass": "^1.22.9",
     "sass-loader": "^7.1.0",
